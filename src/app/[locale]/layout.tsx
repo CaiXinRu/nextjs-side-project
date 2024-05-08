@@ -1,4 +1,5 @@
 import { locales } from "@lib/config";
+import LocaleSwitcher from "@locale/components/LocalSwitcher";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
@@ -24,6 +25,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
   return (
     <html lang={locale}>
       <body className={inter.className}>
+        <LocaleSwitcher />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
