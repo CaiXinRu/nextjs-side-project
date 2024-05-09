@@ -1,5 +1,9 @@
 {
-  "main-title": "Welcome to Taiwan!",
-  "not-found-title": "404 NOT FOUND!",
-  "not-found-return": "RETURN"
+  "not-found-title": "Oops！404 not found",
+  "not-found-return": "return",
+  "home": "Home",
+  "north": "The North",
+  "middle": "The Middle",
+  "south": "The South",
+  "east": "The East"
 }

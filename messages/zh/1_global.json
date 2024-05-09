@@ -1,5 +1,9 @@
 {
-  "main-title": "歡迎來台灣！",
-  "not-found-title": "404 頁面找不到啦哭！",
-  "not-found-return": "返回"
+  "not-found-title": "哇哩咧！404 找不到頁面",
+  "not-found-return": "返回",
+  "home": "首頁",
+  "north": "北部",
+  "middle": "中部",
+  "south": "南部",
+  "east": "東部"
 }
