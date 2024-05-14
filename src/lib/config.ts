@@ -8,6 +8,10 @@ export const pathnames = {
   "/middle": "/middle",
   "/south": "/south",
   "/east": "/east",
+  "/east/yilan": "/east/yilan",
+  "/middle/miaoli": "/middle/miaoli",
+  "/north/newpei": "/north/newpei",
+  "/south/chiayi": "/south/chiayi",
 } satisfies Pathnames<typeof locales>;
 
 export const localePrefix = "always";

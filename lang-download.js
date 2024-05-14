@@ -17,6 +17,10 @@ const SOURCE_CSV_URL =
 const TAB_ARRAY = [
   { gid: "0", fileName: "1_global.json" },
   { gid: "59220473", fileName: "main-home.json" },
+  { gid: "690269619", fileName: "north-home.json" },
+  { gid: "2091790960", fileName: "south-home.json" },
+  { gid: "165408011", fileName: "middle-home.json" },
+  { gid: "1492211754", fileName: "east-home.json" },
 ];
 
 async function fetchCsvFromUrl(url) {
