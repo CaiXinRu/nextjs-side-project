@@ -1,6 +1,6 @@
 // google-spreadsheet 文件：https://docs.google.com/spreadsheets/d/1TeebAmRlzMI7ahENrQfx7RzLYtmyPMXnFA5LsoH9zFg/edit?usp=sharing
 // 本機執行工具，取得遠端 google-spreadsheet 文件的CSV，再轉成json格式儲存
-// 在TERMINAL輸入指令node lang-download.js即可載入語言包
+// 在TERMINAL輸入指令node lang-download.js 或 npm run fetch-lang(Bash) 即可載入語言包
 
 const fs = require("fs").promises; // 使用 fs.promises 可以使 fs 操作變為 Promise-based
 const { parse } = require("csv-parse");

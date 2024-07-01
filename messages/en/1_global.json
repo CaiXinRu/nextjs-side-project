@@ -5,5 +5,10 @@
   "north": "The North",
   "middle": "The Middle",
   "south": "The South",
-  "east": "The East"
+  "east": "The East",
+  "north-taiwan": "The North in Taiwan",
+  "middle-taiwan": "The Middle in Taiwa",
+  "south-taiwan": "The South in Taiwan",
+  "east-taiwan": "The East  inTaiwan",
+  "web-title": "Tourist Attractions in Taiwan"
 }

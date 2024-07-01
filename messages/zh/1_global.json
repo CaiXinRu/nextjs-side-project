@@ -5,5 +5,10 @@
   "north": "北部",
   "middle": "中部",
   "south": "南部",
-  "east": "東部"
+  "east": "東部",
+  "north-taiwan": "台灣北部",
+  "middle-taiwan": "台灣中部",
+  "south-taiwan": "台灣南部",
+  "east-taiwan": "台灣東部",
+  "web-title": "台灣旅遊景點"
 }
