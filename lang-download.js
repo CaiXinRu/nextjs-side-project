@@ -81,12 +81,15 @@ async function writeJsonFile(path, data) {
 async function generateI18nFile(TAB_ARRAY) {
   try {
     let code = `
-    import { getRequestConfig } from "next-intl/server";
-    import { notFound } from "next/navigation";
-    import { locales } from "./config";
-
-    export default getRequestConfig(async ({ locale }) => {
-      if (!locales.includes(locale as any)) notFound()
+    import { getRequestConfig } from 'next-intl/server';
+    import { routing } from './routing';
+    
+    export default getRequestConfig(async ({requestLocale}) => {
+      let locale = await requestLocale;
+    
+      if (!locale || !routing.locales.includes(locale as any)) {
+        locale = routing.defaultLocale;
+      }
 
       const messages = {`;
 
@@ -98,15 +101,16 @@ async function generateI18nFile(TAB_ARRAY) {
         }
 
         return {
+          locale,
           messages,
         }
       })
     `;
 
-    await fs.writeFile("./src/lib/i18n.ts", code);
-    console.log("./src/lib/i18n.ts" + "文件寫入成功");
+    await fs.writeFile("./src/i18n/request.ts", code);
+    console.log("./src/i18n/request.ts" + "文件寫入成功");
   } catch (err) {
-    console.error("./src/lib/i18n.ts" + "文件寫入失敗");
+    console.error("./src/i18n/request.ts" + "文件寫入失敗");
     console.error(err.message);
   }
 }
