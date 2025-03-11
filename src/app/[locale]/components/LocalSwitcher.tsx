@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
     <ul className="f2e-localswitcher">
       {languages.map(({ key, label }) => (
         <li key={key}>
-          <Link locale={key} href={redirectedPathName(key)}>
+          <Link href={redirectedPathName(key)}>
             {label}
           </Link>
         </li>

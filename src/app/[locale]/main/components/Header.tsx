@@ -1,4 +1,4 @@
-import { Link } from "@lib/navigation";
+import { Link } from "@/src/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 export default async function MainHeader() {
@@ -13,15 +13,6 @@ export default async function MainHeader() {
           </li>
           <li>
             <Link href="/north">{t("north")}</Link>
-          </li>
-          <li>
-            <Link href="/middle">{t("middle")}</Link>
-          </li>
-          <li>
-            <Link href="/south">{t("south")}</Link>
-          </li>
-          <li>
-            <Link href="/east">{t("east")}</Link>
           </li>
         </ul>
       </nav>

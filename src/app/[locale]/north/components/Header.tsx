@@ -1,4 +1,4 @@
-import { Link } from "@lib/navigation";
+import { Link } from "@/src/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 export default async function NorthHeader() {

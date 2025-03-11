@@ -1,8 +1,10 @@
 import NorthHeader from "@/src/app/[locale]/north/components/Header";
-import { locales } from "@lib/config";
+// import { locales } from "@lib/config";
+import { routing } from '@/src/i18n/routing';
 import type { Metadata } from "next";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import React from "react";
 
 export const metadata: Metadata = {
@@ -25,14 +27,28 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-type Props = { children: React.ReactNode; params: { locale: string } };
+// type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
 
-export default function NorthLayout({ children, params: { locale } }: Props) {
-  const messages = useMessages();
-  unstable_setRequestLocale(locale);
+export default async function NorthLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode;
+  params: Promise<{locale: string}>;
+}) {
+const {locale} = await params;
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+ 
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
+  setRequestLocale(locale);
 
   return (
     <>

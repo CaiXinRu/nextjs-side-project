@@ -1,15 +1,17 @@
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import { localePrefix, locales, pathnames } from "@lib/config";
+// import { localePrefix, locales, pathnames } from "@lib/config";
 import Negotiator from "negotiator";
-import createIntlMiddleware from "next-intl/middleware";
+// import createIntlMiddleware from "next-intl/middleware";
+import createMiddleware from 'next-intl/middleware';
 import { NextRequest } from "next/server";
+import { routing } from './i18n/routing';
 
 function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
   // @ts-ignore locales are readonly
-  const setLocales: string[] = locales;
+  const setLocales: string[] = routing.locales;
   const setDefaultLocale: string = "en";
 
   // languages為瀏覽器設定語言喜好順序陣列
@@ -21,18 +23,14 @@ function getLocale(request: NextRequest): string | undefined {
   return locale;
 }
 
-export default async function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   const locale = getLocale(request);
   const defaultLocale = locale === "zh" || locale === "zh-TW" ? "zh" : "en";
-  const handleI18nRouting = createIntlMiddleware({
-    locales,
+
+  return createMiddleware({
+    ...routing,
     defaultLocale,
-    localePrefix,
-    localeDetection: false,
-    pathnames,
-  });
-  const response = handleI18nRouting(request);
-  return response;
+  })(request);
 }
 
 export const config = {
