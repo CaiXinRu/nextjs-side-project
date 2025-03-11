@@ -29,8 +29,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
-
 export default async function NorthLayout({
   children,
   params
@@ -42,19 +40,15 @@ const {locale} = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
- 
-  // Providing all messages to the client
-  // side is the easiest way to get started
+
   const messages = await getMessages();
 
   setRequestLocale(locale);
 
   return (
-    <>
       <NextIntlClientProvider messages={messages}>
         <NorthHeader />
         <main>{children}</main>
       </NextIntlClientProvider>
-    </>
   );
 }

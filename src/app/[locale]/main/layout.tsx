@@ -31,8 +31,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
-
 export default async function MainLayout({
   children,
   params
@@ -40,24 +38,19 @@ export default async function MainLayout({
   children: React.ReactNode;
   params: Promise<{locale: string}>;
 }) {
-// Ensure that the incoming `locale` is valid
   const {locale} = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
  
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   setRequestLocale(locale);
 
   return (
-    <>
       <NextIntlClientProvider messages={messages}>
         <MainHeader />
         <main>{children}</main>
       </NextIntlClientProvider>
-    </>
   );
 }
