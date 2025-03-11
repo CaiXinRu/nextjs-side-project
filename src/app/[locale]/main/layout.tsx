@@ -1,11 +1,9 @@
 import MainHeader from "@/src/app/[locale]/main/components/Header";
-import { routing } from '@/src/i18n/routing';
-import React from "react";
-// import MainFooter from '@/src/app/[locale]/main/components/Footer'
-// import { locales } from "@lib/config";
+import { routing } from '@i18n/routing';
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from 'next/navigation';
+import React from "react";
 
 export async function generateMetadata() {
   const t = await getTranslations();

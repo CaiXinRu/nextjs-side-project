@@ -1,11 +1,9 @@
-import { routing } from '@/src/i18n/routing';
-// import { locales } from "@lib/config";
+import { routing } from '@i18n/routing';
 import LocaleSwitcher from "@locale/components/LocalSwitcher";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-// import { unstable_setRequestLocale } from "next-intl/server";
 import { Inter } from "next/font/google";
+import { notFound } from 'next/navigation';
 
 const inter = Inter({ subsets: ["latin"] });
 

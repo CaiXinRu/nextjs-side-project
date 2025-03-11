@@ -1,6 +1,5 @@
 import NorthHeader from "@/src/app/[locale]/north/components/Header";
-// import { locales } from "@lib/config";
-import { routing } from '@/src/i18n/routing';
+import { routing } from '@i18n/routing';
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from 'next-intl/server';

@@ -1,7 +1,5 @@
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-// import { localePrefix, locales, pathnames } from "@lib/config";
 import Negotiator from "negotiator";
-// import createIntlMiddleware from "next-intl/middleware";
 import createMiddleware from 'next-intl/middleware';
 import { NextRequest } from "next/server";
 import { routing } from './i18n/routing';

@@ -31,8 +31,8 @@
       "@app/*": [
         "./src/app/*"
       ],
-      "@lib/*": [
-        "./src/lib/*"
+      "@i18n/*": [
+        "./src/i18n/*"
       ],
       "@locale/*": [
         "./src/app/[locale]/*"
